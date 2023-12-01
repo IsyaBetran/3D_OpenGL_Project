@@ -76,6 +76,18 @@
     <None Include="texturedCube.vert">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="shadowMapping.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="depthMap.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="depthMap.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shadowMapping.frag">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="oldPlastic.jpg">
@@ -127,6 +139,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="welcome.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="putih.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="greenleaf.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

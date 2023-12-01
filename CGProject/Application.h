@@ -19,8 +19,8 @@ public:
     ~Application();
 private:
 	float viewCamX, viewCamY, viewCamZ, upCamX, upCamY, upCamZ, posCamX, posCamY, posCamZ, CAMERA_SPEED, fovy;
-	Shader *shader;
-	Cube *cube, *basecube, *cubeRoof, *cubeSofa, *cubeMeja, *picture,*picture2, *tv, *frame, *rug, *mat;
+	Shader* shader;
+	Cube *cube, *basecube, *cubeRoof, *cubeSofa, *cubeMeja, *picture,*picture2, *tv, *frame, *rug, *mat, *bedCover, *leaf;
 	CRTMonitor *monitor;
 	Texture *cubeDiffTex, *cubeSpecTex;
 	virtual void Init();
@@ -49,5 +49,9 @@ private:
 	void Rug();
 	void Keset();
 	void Bed();
+	void Lemari();
+	void Pohon(glm::vec3 position);
+	void Grass(glm::vec3 position);
+	void MejaDapur();
 };
 

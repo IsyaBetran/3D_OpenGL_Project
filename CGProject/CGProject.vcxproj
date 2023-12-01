@@ -162,8 +162,12 @@
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="depthMap.frag" />
+    <None Include="depthMap.vert" />
     <None Include="seaShader.frag" />
     <None Include="seaShader.vert" />
+    <None Include="shadowMapping.frag" />
+    <None Include="shadowMapping.vert" />
     <None Include="texturedCube.frag" />
     <None Include="texturedCube.vert" />
     <None Include="Triangle.frag" />
@@ -178,6 +182,7 @@
     <Image Include="dark-texture-watercolor.jpg" />
     <Image Include="DisneyMeneyHeist.png" />
     <Image Include="green.png" />
+    <Image Include="greenleaf.png" />
     <Image Include="grey.png" />
     <Image Include="karpet.png" />
     <Image Include="marble.png" />
@@ -185,6 +190,7 @@
     <Image Include="marble_specularmap.png" />
     <Image Include="oldPlastic.jpg" />
     <Image Include="PDS.jpg" />
+    <Image Include="putih.png" />
     <Image Include="sketsa.jpg" />
     <Image Include="welcome.png" />
   </ItemGroup>

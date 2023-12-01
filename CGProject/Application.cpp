@@ -34,7 +34,7 @@ void Application::Init()
 
 void Application::DeInit()
 {
-	delete cube,basecube, cubeRoof, cubeSofa, cubeMeja,picture, picture2, tv, frame, rug, mat;
+	delete cube,basecube, cubeRoof, cubeSofa, cubeMeja,picture, picture2, tv, frame, rug, mat, bedCover, leaf;
 	delete monitor;
 }
 
@@ -164,6 +164,20 @@ void Application::Render()
 
 	Keset();
 
+	Bed();
+	Lemari();
+
+	MejaDapur();
+
+	//Hijau-hijauan
+	Pohon(glm::vec3(5, 0, 25));
+	Pohon(glm::vec3(10, 0, 10));
+	Pohon(glm::vec3(-26, 0, -6));
+	Pohon(glm::vec3(-29, 0, 5));
+	Pohon(glm::vec3(-27, 0, 18));
+	Grass(glm::vec3(-27, -1, 30));
+	Grass(glm::vec3(3, -1, 30));
+
 	monitor->SetPosition(-17.5f, 0.85f, -16);
 	monitor->SetScale(0.5f, 0.5f, 0.5f);
 	monitor->DrawCRTMonitor();
@@ -175,9 +189,9 @@ void Application::Render()
 
 void Application::InitCamera()
 {
-	posCamX = 5.0f;
+	posCamX = -20.0f;
 	posCamY = 3.0f;
-	posCamZ = 30.0f;
+	posCamZ = 50.0f;
 	viewCamX = 0.0f;
 	viewCamY = 0.0f;
 	viewCamZ = 0.0f;
@@ -326,6 +340,22 @@ void Application::InitObject() {
 
 	mat = new Cube(shader, cubeDiffTex, cubeSpecTex);
 	mat->Init();
+
+	cubeDiffTex = new Texture("putih.png");
+	cubeDiffTex->Init();
+	cubeSpecTex = new Texture("putih.png");
+	cubeSpecTex->Init();
+
+	bedCover = new Cube(shader, cubeDiffTex, cubeSpecTex);
+	bedCover->Init();
+
+	cubeDiffTex = new Texture("greenleaf.png");
+	cubeDiffTex->Init();
+	cubeSpecTex = new Texture("greenleaf.png");
+	cubeSpecTex->Init();
+
+	leaf = new Cube(shader, cubeDiffTex, cubeSpecTex);
+	leaf->Init();
 }
 
 void Application::House() {
@@ -425,6 +455,12 @@ void Application::House() {
 	cube->SetPosition(7, 3, -8);
 	cube->SetRotation(0, 0, 1, 0);
 	cube->SetScale(1, 9, 14);
+	cube->Draw();
+
+	//tembok dalam atas
+	cube->SetPosition(7, 7, -16.75f);
+	cube->SetRotation(0, 0, 1, 0);
+	cube->SetScale(1, 5, 4);
 	cube->Draw();
 
 	//tembok kiri extend
@@ -672,5 +708,69 @@ void Application::Keset() {
 }
 
 void Application::Bed() {
+	//Bagian Bawah
+	cubeRoof->SetPosition(10, -1, -7);
+	cubeRoof->SetRotation(0, 0, 1, 0);
+	cubeRoof->SetScale(5, 1.5f, 10);
+	cubeRoof->Draw();
+	//Bagian Kepala
+	cubeRoof->SetPosition(10, 0, -2);
+	cubeRoof->SetRotation(0, 0, 1, 0);
+	cubeRoof->SetScale(5, 4, 0.5f);
+	cubeRoof->Draw();
+	//cover
+	bedCover->SetPosition(10, 0, -7);
+	bedCover->SetRotation(0, 0, 1, 0);
+	bedCover->SetScale(5, 0.5, 9.4);
+	bedCover->Draw();
+}
 
+void Application::Lemari() {
+	//base
+	cubeRoof->SetPosition(16, 2, -3);
+	cubeRoof->SetRotation(0, 0, 1, 0);
+	cubeRoof->SetScale(5, 8, 2);
+	cubeRoof->Draw();
+	//kiri
+	cubeRoof->SetPosition(17.2, 2.25f, -4);
+	cubeRoof->SetRotation(0, 0, 1, 0);
+	cubeRoof->SetScale(2, 7, 0.5f);
+	cubeRoof->Draw();
+	//kanan
+	cubeRoof->SetPosition(14.8, 2.25f, -4);
+	cubeRoof->SetRotation(0, 0, 1, 0);
+	cubeRoof->SetScale(2, 7, 0.5f);
+	cubeRoof->Draw();
+}
+
+void Application::Pohon(glm::vec3 position) {
+	//batang
+	cubeRoof->SetPosition(position.x,position.y, position.z);
+	cubeRoof->SetRotation(0, 0, 1, 0);
+	cubeRoof->SetScale(2, 6, 2);
+	cubeRoof->Draw();
+	//daun
+	leaf->SetPosition(position.x, position.y + 6, position.z);
+	leaf->SetRotation(0, 0, 1, 0);
+	leaf->SetScale(8, 8, 8);
+	leaf->Draw();
+}
+
+void Application::Grass(glm::vec3 position) {
+	leaf->SetPosition(position.x, position.y, position.z);
+	leaf->SetRotation(0, 0, 1, 0);
+	leaf->SetScale(25, 3, 3);
+	leaf->Draw();
+}
+
+void Application::MejaDapur() {
+	cubeRoof->SetPosition(0, -1.5f, -2.75f);
+	cubeRoof->SetRotation(0, 0, 1, 0);
+	cubeRoof->SetScale(8, 4, 2.5f);
+	cubeRoof->Draw();
+
+	cubeRoof->SetPosition(5.25f, -1.5f, -5.5f);
+	cubeRoof->SetRotation(0, 0, 1, 0);
+	cubeRoof->SetScale(2.5f, 4, 8);
+	cubeRoof->Draw();
 }
